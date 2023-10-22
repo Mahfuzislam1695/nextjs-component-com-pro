@@ -2,6 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import './test.css';
+// import SwitchButton from '@/component/share/switchButton/Switchbutton';
+
+import FbSvg from '../../asset/fb.svg';
+import TwitterSvg from '../../asset/twitter.svg';
+import LinkedinSvg from '../../asset/linkedin.svg';
+import YoutubeSvg from '../../asset/youtube.svg';
+import Image from 'next/image';
+import { FaFacebook, FaLinkedin, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 const Test = () => {
     const [zoomBackground, setZoomBackground] = useState(false);
@@ -36,40 +44,16 @@ const Test = () => {
         // transition: "background-size 1s ease",
     };
 
-    // <div
-    //   className={`${isSidebarVisible
-    //     ? "ease-in-out duration-500 left-0"
-    //     : "ease-in-out duration-500 left-[-18rem]"
-    //     } print:hidden bg-white text-[#4F46E5] h-screen fixed w-72 z-40 overflow-auto p-2 border scrollbar`}
-    // ></div>
+    const svgStyle = {
+        filter: 'brightness(1.8)', // Adjust the brightness to control the hover effect
+        cursor: 'pointer', // Optional: Change cursor on hover
+        backgroundSize: "120%"
+    };
 
     return (
         <div>
-            {/* <div className="h-screen flex justify-center items-center">
-                <div className="text-9xl font-[900]">
-                
-
-                    <div
-                        className={`${showDiv
-                            ? "ease-in-out duration-500 left-0"
-                            : "ease-in-out duration-500 left-[-40rem]"
-                            } fixed bg-clip-text bg-cover text-transparent`} style={backgroundImageStyle}
-                    > ABOUT</div>
-
-
-
-                    <div className="h-screen flex justify-center items-center bg-white text-black">
-                        <div className="text-9xl font-[900]">
-                            ABOUT
-                        </div>
-                    </div>
-
-                </div>
-            </div> */}
             {showDiv1 ? (
-                // <div className="h-screen flex justify-center items-center">
-                <div className="text-size font-[900] w-screen h-screen relative">
-
+                <div className="text-size font-[900] w-screen h-screen relative bg-black">
                     <div>
                         <div
                             className={`${showDiv
@@ -77,20 +61,48 @@ const Test = () => {
                                 : "ease-in-out duration-500 inset-0  top-[-100vh]"
                                 } absolute bg-clip-text bg-cover text-transparent flex justify-center items-center h-full w-full`} style={backgroundImageStyle}
                         >
-
                             ABOUT
-
-
                         </div>
                     </div>
-
-
                 </div>
-                // </div>
             ) : (
-                <div className="h-screen flex justify-center items-center bg-white text-black">
-                    <div className="text-9xl font-[900]">
-                        ABOUT
+                <div>
+                    <nav className="fixed w-full z-50 bg-white border">
+                        <div className=''>
+                            <div className='w-full bg-[#333132] flex justify-center items-center'>
+                                <div className="container">
+                                    <div className='flex justify-between'>
+                                        <div className='flex '>
+                                            <button className='px-3 py-1.5 text-sm font-semibold text-white hover:bg-white hover:text-[#333333]'>Local</button>
+                                            <button className='px-4 py-1 text-sm font-semibold text-white hover:bg-white hover:text-[#333333]'>Business</button>
+                                        </div>
+
+                                        <div className='flex gap-4 group justify-center items-center py-1'>
+                                            <FaFacebook fontSize={20} className='text-white cursor-pointer hover:text-blue-800' />
+                                            <FaXTwitter fontSize={20} className='text-white cursor-pointer hover:text-blue-800' />
+                                            <FaLinkedin fontSize={20} className='text-white cursor-pointer hover:text-blue-800' />
+                                            <FaYoutube fontSize={20} className='text-white cursor-pointer hover:text-blue-800' />
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className=' w-full  flex justify-center items-center'>
+                                <div className="container">
+                                    <div className='flex justify-between'>
+                                        <div className=''>Logo</div>
+                                        <div>2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <div className="h-screen flex justify-center items-center bg-white text-black">
+                        <div className="text-9xl font-[900]">
+                            ABOUT
+                        </div>
                     </div>
                 </div>
             )}
@@ -99,68 +111,3 @@ const Test = () => {
 };
 
 export default Test;
-
-
-
-// const Test = () => {
-//     const [zoomBackground, setZoomBackground] = useState(false);
-//     const [showDiv1, setShowDiv1] = useState(true);
-//     const [showDiv, setShowDiv] = useState(true);
-
-//     useEffect(() => {
-//         setZoomBackground(true);
-
-//         const timeoutId1 = setTimeout(() => {
-//             setZoomBackground(false);
-//         }, 800);
-
-//         const timeoutId2 = setTimeout(() => {
-//             setShowDiv1(false);
-//         }, 1500);
-
-//         const timeoutId3 = setTimeout(() => {
-//             setShowDiv(false);
-//         }, 800);
-
-//         return () => {
-//             clearTimeout(timeoutId1);
-//             clearTimeout(timeoutId2);
-//             clearTimeout(timeoutId3);
-//         };
-//     }, []);
-
-//     const backgroundImageStyle = {
-//         backgroundImage: "url(image1.jpg)",
-//         backgroundSize: zoomBackground ? "300%" : "75%", // Adjust the size of the background image
-//         transition: "background-size 1s ease", // Add a smooth transition effect
-//     };
-
-//     const aboutTextStyle = {
-//         transform: showDiv ? 'translateY(0)' : 'translateY(-100%)', // Lift up when showDiv is false
-//         transition: "transform 0.8s ease", // Add a smooth transition effect
-//     };
-
-//     return (
-//         <div>
-//             {showDiv1 ? (
-//                 <div className="h-screen flex justify-center items-center">
-//                     <div className="text-9xl font-[900]">
-//                         {showDiv && (
-//                             <span className={`bg-clip-text text-transparent bg-cover text-size`} style={{ ...backgroundImageStyle, ...aboutTextStyle }}>
-//                                 ABOUT
-//                             </span>
-//                         )}
-//                     </div>
-//                 </div>
-//             ) : (
-//                 <div className="h-screen flex justify-center items-center bg-white text-black">
-//                     <div className="text-9xl font-[900] ">
-//                         ABOUT
-//                     </div>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// };
-
-// export default Test;
