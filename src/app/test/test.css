@@ -50,3 +50,48 @@
     transform: translateY(0);
   }
 }
+
+.animation {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeAndSlide 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeAndSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toggleDiv1 {
+  height: 2.25rem;
+  overflow: hidden;
+  transition: height 0.3s ease; /* Add transition property */
+}
+
+.visible1 {
+  height: 2.25rem;
+}
+
+.hidden1 {
+  height: 0;
+}
+
+/* .toggleDiv {
+  height: 11rem;
+  overflow: hidden;
+  transition: height 4s ease;
+}
+
+.visible {
+  height: 11rem;
+}
+
+.hidden {
+  height: 0;
+} */
